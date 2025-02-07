@@ -1,0 +1,237 @@
+/* General styles */
+.calendar-container {
+    max-width: 600px;
+
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.keywords{
+    text-align: left;
+}
+.keyword{
+    font-size: 10px;
+    border:2px solid #f0f8ff;
+
+   background-color: #f0f8ff;
+   color: #000;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.year-input {
+    width: 70px;
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Calendar table styles */
+.calendar-table {
+    width: 129%;
+    margin-left: -32%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.header-calendar {
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header-calendar input[type="date"] {
+    width: 100%;
+    /* Makes the date input field take up 100% of its container width */
+    padding: 10px;
+    /* Adds padding for better spacing inside the input */
+    font-size: 16px;
+    /* Ensures the text inside the input is readable */
+    border: 1px solid #ddd;
+    /* Light border around the input */
+    border-radius: 4px;
+    /* Rounded corners for the input */
+    box-sizing: border-box;
+    /* Ensures padding is included in the element's total width */
+}
+
+.header-calendar button {
+    background-color: #007bff;
+
+}
+
+.calendar-table th,
+.calendar-table td {
+    width: 14.28%;
+    height: 60px;
+    text-align: center;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar-table th {
+    font-weight: bold;
+}
+
+.day-cell {
+    background-color: #fff;
+}
+
+.day-cell:hover {
+    background-color: #f0f8ff;
+}
+
+.current-date {
+    background-color: #ffecb3;
+}
+
+.highlighted {
+    background-color: #d4edda;
+}
+
+/* Notes display */
+.notes {
+    font-size: 12px;
+    color: #555;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Modal overlay to cover the entire screen */
+.left-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30%;
+    /* Adjust width as needed */
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar content container */
+.left-sidebar1 {
+    padding: 20px;
+    background-color: #fff;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Modal header styling */
+.left-sidebar1 h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+
+/* Subheaders */
+.left-sidebar1 h4 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+/* Error message styling */
+.error-text {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Input fields styling */
+.left-sidebar1 input[type="time"],
+.left-sidebar1 textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+/* .button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto 0;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+} */
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Event paragraph styling */
+.left-sidebar1 p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Scrollbar for sidebar */
+.left-sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.left-sidebar::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 10px;
+}
+
+.left-sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
+
+
+.error-text {
+    color: #d9534f;
+    margin-bottom: 10px;
+}
+
+.note-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}

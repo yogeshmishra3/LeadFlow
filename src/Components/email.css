@@ -1,0 +1,124 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #F9FBFF;
+}
+
+/* Email App Container */
+.email-app {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Sidebar */
+.email-sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+}
+
+.compose-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.folder-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.folder-item {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #555;
+}
+
+.folder-item.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Main Content */
+.email-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
+
+.email-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.email-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.control-button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.search-input {
+    margin-left: auto;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Email List */
+.email-list {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.email-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.email-item.selected {
+    background-color: #e8f4ff;
+}
+
+.email-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.email-details strong {
+    font-size: 1rem;
+}
+
+.email-details p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: #555;
+}

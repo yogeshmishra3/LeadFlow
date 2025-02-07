@@ -1,0 +1,108 @@
+.reports-tables-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 17%;
+    margin-top: 0%;
+    align-items: stretch; /* Ensure all children stretch equally */
+  }
+  
+  /* Common card styles */
+  .card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Top Customers Section */
+  .table-section {
+    flex: 1; /* Allow it to take available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align content within the card */
+  }
+  
+  .table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .view-more {
+    margin-top: 10px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #6200ea;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Main Cards Section */
+  .mainCards {
+    flex: 1; /* Allow equal space with table-section */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Overview Section */
+  .overview-section {
+    flex: 1;
+  }
+  
+  .overview-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  /* Mini Cards Section */
+  .mini-cards {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .mini-card {
+    flex: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .mini-card p {
+    margin: 0;
+    color: #888;
+  }
+  
+  .metric-detail {
+    color: #4caf50;
+    font-size: 12px;
+  }
+  
+  /* Match heights dynamically */
+  .reports-tables-container {
+    align-items: stretch; /* Ensure all child sections stretch to the same height */
+  }
+  
+  .table-section,
+  .mainCards {
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow flex to dynamically set height */
+  }
+  
+  .table-section {
+    min-height: calc(100%); /* Match the mainCards height */
+  }
+  

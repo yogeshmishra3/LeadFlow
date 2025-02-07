@@ -1,0 +1,60 @@
+/* Container styling */
+.task-progress-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin-left: 4%;
+}
+
+/* Title styling */
+.task-progress-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+/* Individual progress item */
+.progress-item {
+    margin-bottom: 15px;
+}
+
+/* Label for each task */
+.progress-label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Progress bar container */
+.progress-bar-container {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    height: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Progress bar fill */
+.progress-bar {
+    height: 100%;
+    border-radius: 20px;
+}
+
+.progress-bar.open {
+    background-color: #007bff;
+    /* Blue for "Open" */
+}
+
+.progress-bar.in-progress {
+    background-color: #007bff;
+    /* Yellow for "In Progress" */
+}
+
+.progress-bar.completed {
+    background-color: #007bff;
+    /* Green for "Completed" */
+}
+

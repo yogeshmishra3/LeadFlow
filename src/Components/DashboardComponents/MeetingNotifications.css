@@ -1,0 +1,47 @@
+.meeting-notifications {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.meeting-notifications h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.meeting-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.meeting-item {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #007bff;
+}
+
+.meeting-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.no-meetings {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+}
+
+@media (max-width: 600px) {
+    .meeting-notifications {
+        max-width: 90%;
+    }
+}

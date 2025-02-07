@@ -1,0 +1,15 @@
+.app-container {
+    min-height: 100vh;
+    margin-left: 17%;
+}
+
+.contacts-table {
+    margin-left: 0%;
+    max-width: 100%;
+
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+}

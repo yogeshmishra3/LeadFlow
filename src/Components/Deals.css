@@ -1,0 +1,296 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.deals-container {
+    padding: 20px;
+    min-height: 100vh;
+    margin-left: 17%;
+    margin-top: 2%;
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-content h3 {
+    margin-bottom: 15px;
+  }
+  
+  .modal-content input,
+  .modal-content button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .modal-content button {
+    background-color: #7a5ee3;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal-content button:hover {
+    background-color: #6943d1;
+  }
+  
+  .modal-content button.cancel {
+    background-color: #f768da;
+  }
+  
+  .modal-content button.cancel:hover {
+    background-color: #e14f9d;
+  }
+
+  
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    font-size: 24px;
+}
+
+.header button {
+    background-color: #7a5ee3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deals-board {
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: 200px;
+}
+
+.column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.deal-card {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.deal-card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.deal-card .owner {
+    font-size: 12px;
+    color: #888;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content h3 {
+    margin-bottom: 15px;
+}
+
+.popup-content input,
+.popup-content select,
+.popup-content button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup-content button {
+    background-color: #7a5ee3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-content button.close {
+    background-color: #f768da;
+}
+
+/* Recycle Bin Section */
+.recycle-bin-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recycle-bin-container h2 {
+    font-size: 20px;
+    color: #d90429;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.recycle-bin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.recycle-bin-card {
+    background-color: #ffe3e3;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 10px);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.recycle-bin-card p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.recycle-bin-card .owner {
+    font-size: 12px;
+    color: #888;
+}
+
+.recycle-bin-card button {
+    background-color: #7a5ee3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.recycle-bin-card button:hover {
+    background-color: #6943d1;
+}
+
+.recycle-bin-card .delete {
+    background-color: #ff6b6b;
+}
+
+.recycle-bin-card .delete:hover {
+    background-color: #d90429;
+}
+
+.recycle-bin-card .restore {
+    background-color: #2fbb5e;
+}
+
+.recycle-bin-card .restore:hover {
+    background-color: #28a745;
+}
+
+
+.edit-btn, .archive-btn {
+    background-color: #7a5ee3;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover, .archive-btn:hover {
+    background-color: #6943d1;
+  }
+  
+  .recycle-bin-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+  }
+  
+  .recycle-bin-card {
+    background-color: #ffe3e3;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .restore-btn, .delete-btn {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .restore-btn:hover, .delete-btn:hover {
+    background-color: #e84a44;
+  }
+  
+
+
+
+
+ 

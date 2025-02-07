@@ -1,0 +1,82 @@
+/* Finance.css */
+
+.finance-container {
+    width: 80%;
+    margin: 2% auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .finance-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .finance-table th, .finance-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+
+
+  .modal {
+    display: block !important; /* Ensure it's visible */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  
+  .finance-table th {
+    font-weight: bold;
+  }
+  
+  .finance-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .finance-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .edit-btn, .delete-btn {
+    border: none;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+  
+  .edit-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .edit-btn:hover {
+    background-color: #218838;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  

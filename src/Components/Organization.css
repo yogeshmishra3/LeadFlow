@@ -1,0 +1,19 @@
+table{
+    width: 115%;
+    margin-left: 0%;
+
+}
+
+.headerr_button{
+    margin-left: 97%;
+    background-color: #7a5ee3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.organizationTable{
+    width: 100%;
+}

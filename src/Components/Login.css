@@ -1,0 +1,90 @@
+/* Full-screen container for the login form */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Card-like login form styling */
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.login-form h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333333;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+}
+
+.login-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+    outline: none;
+}
+
+.login-form button {
+    padding: 12px;
+    background: #1e1f3b;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-form button:hover {
+    background: linear-gradient(135deg, #00c6fb, #005bea);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.login-form .secondary-action {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.login-form .secondary-action a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-form .secondary-action a:hover {
+    color: #0056b3;
+}

@@ -1,0 +1,233 @@
+/* Tasks.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.tasks-container {
+    padding: 20px;
+    min-height: 100vh;
+    margin-left: 17%;
+    margin-top: 2%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 24px;
+}
+
+.restoreBtn{
+    background-color: rgb(47, 172, 47);
+    color: white;
+}
+
+.deleteBtn{
+    background-color: red;
+    color: white;
+}
+
+.header button {
+    background-color: #7a5ee3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 30px;
+}
+
+.tasks-board {
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: 200px;
+}
+
+.column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.task-card {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.task-card h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.task-card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.task-card button {
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.popupp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupp-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popupp-content h3 {
+    margin-bottom: 15px;
+}
+
+.popupp-content input,
+.popupp-content textarea,
+.popupp-content select,
+.popupp-content button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popupp-content textarea {
+    resize: none;
+    height: 80px;
+}
+
+.popupp-content button {
+    background-color: #7a5ee3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.popupp-content button.close {
+    background-color: #f768da;
+}
+
+/* Recycle Bin Container */
+.Main-recylebin {
+    position: absolute;
+    margin-left: 50%;
+}
+
+.recycle-bin {
+    background-color: #fff5f5;
+    /* Light red background for recycle bin */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 16px;
+    /* Spacing inside the container */
+    margin: 16px;
+    /* Spacing outside the container */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Slight shadow for depth */
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition on hover */
+}
+
+.recycle-bin:hover {
+    transform: scale(1.02);
+    /* Slightly enlarge on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    /* Emphasized shadow on hover */
+}
+
+/* Header Styling */
+.recycle-bin h3 {
+    color: #d90429;
+    /* Red text color */
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+/* Task Cards in Recycle Bin */
+.PropertiesOfTask {
+    border: 1px solid #ff6b6b;
+    /* Red border for tasks */
+    background-color: #ffe3e3;
+    /* Lighter red background */
+    border-radius: 6px;
+    /* Rounded corners */
+    padding: 12px;
+    margin-bottom: 12px;
+    /* Space between tasks */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.PropertiesOfTask:hover {
+    background-color: #ffd6d6;
+    /* Slightly darker red on hover */
+}
+
+/* Task Title */
+.PropertiesOfTask h4 {
+    color: #333;
+    /* Dark text for contrast */
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+/* Task Description */
+.PropertiesOfTask p {
+    color: #555;
+    /* Slightly muted text for description */
+    margin-bottom: 12px;
+}
+
+/* Delete Button */
+.PropertiesOfTask button {
+    background-color: #ff6b6b;
+    /* Red background for delete button */
+    color: #fff;
+    /* White text */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.PropertiesOfTask button:hover {
+    background-color: #d90429;
+    /* Darker red on hover */
+}

@@ -1,0 +1,118 @@
+/* General Wrapper */
+.accounting-wrapper {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin-left: 17%;
+    margin-top: 2%;
+  }
+  
+  /* Header Section */
+  .accounting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .accounting-controls button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .accounting-add-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .accounting-edit-button {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  /* Dashboard Section */
+  .accounting-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .accounting-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Expenses List */
+  .accounting-expenses-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .accounting-expense-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .accounting-expense-amount {
+    font-weight: bold;
+  }
+  
+  /* Sales Invoices */
+  .accounting-invoice-info {
+    text-align: left;
+  }
+  
+  .accounting-amount {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .accounting-paid {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .accounting-unpaid {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .accounting-progress-bar {
+    background-color: #eee;
+    border-radius: 5px;
+    height: 10px;
+    width: 100%;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  
+  .accounting-progress {
+    background-color: #4caf50;
+    height: 100%;
+  }
+  
+  /* Executive Summary */
+  .accounting-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .accounting-summary-table th, .accounting-summary-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .accounting-summary-table th {
+    font-weight: bold;
+  }
+  
