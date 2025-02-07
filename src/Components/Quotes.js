@@ -345,6 +345,7 @@ const QuotationGenerator = () => {
 </div>
     </div>
   );
+  
 };
 
 export default QuotationGenerator;
