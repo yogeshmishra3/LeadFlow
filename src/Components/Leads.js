@@ -21,11 +21,11 @@ function Leads() {
         date: new Date().toISOString().substring(0, 10), // Default to today
     });
 
-    
+
 
     const [searchTerm, setSearchTerm] = useState("");
     const [locationFilter, setLocationFilter] = useState("");
-    const newLeadsApiUrl = "http://localhost:5001/api/NewLeads";
+    const newLeadsApiUrl = "https://crm-mu-sooty.vercel.app/api/NewLeads";
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -149,7 +149,7 @@ function Leads() {
         });
         setShowNewDealModal(true); // Open the modal to allow editing.
     };
-    
+
     const handleDelete = async (id) => {
         // Ask for confirmation or directly proceed to delete.
         const confirmation = window.confirm("Are you sure you want to delete this lead?");
@@ -167,7 +167,7 @@ function Leads() {
 
     const updateLead = async (e) => {
         e.preventDefault(); // Prevent the default form submission.
-    
+
         // Send a PUT request to update the lead.
         try {
             const response = await fetch(`${newLeadsApiUrl}/${formData._id}`, {
@@ -177,9 +177,9 @@ function Leads() {
                 },
                 body: JSON.stringify(formData), // Sending the updated lead data
             });
-    
+
             const data = await response.json();
-    
+
             if (data.success) {
                 alert("Lead updated successfully!");
                 fetchLeads(); // Reload the leads after update.
@@ -192,8 +192,8 @@ function Leads() {
             console.error("Error updating lead", error);
         }
     };
-    
-    
+
+
 
     return (
         <div className="app-container">
@@ -249,17 +249,17 @@ function Leads() {
                             <tr key={lead._id}>
                                 <td>{index + 1}</td>
                                 <td>
-  {(lead.date || "").toString().substring(0,10) || "N/A"}
-</td>
+                                    {(lead.date || "").toString().substring(0, 10) || "N/A"}
+                                </td>
 
                                 <td>{lead.leadName}</td>
                                 <td>{lead.name}</td>
                                 <td>{lead.email}</td>
                                 <td>{lead.phone}</td>
                                 <td>{lead.address}</td>
-                                <td style={{fontSize:"12px"}}>{lead.message || "N/A"}</td>
+                                <td style={{ fontSize: "12px" }}>{lead.message || "N/A"}</td>
                                 <td>
-                                    <button  style={{padding:"none"}} onClick={() => handleEdit(lead)}>Edit</button>
+                                    <button style={{ padding: "none" }} onClick={() => handleEdit(lead)}>Edit</button>
                                     <button onClick={() => handleDelete(lead._id)}>Delete</button>
                                 </td>
                                 <td>

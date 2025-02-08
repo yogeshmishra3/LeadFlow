@@ -31,7 +31,7 @@ function EmployeeContacts() {
     const [isRefreshing, setIsRefreshing] = useState(false); // Added missing state
     const navigate = useNavigate();
 
-    const apiUrl = "http://localhost:5001/api/employees";
+    const apiUrl = "https://crm-mu-sooty.vercel.app/api/employees";
 
     useEffect(() => {
         fetchEmployees();
@@ -291,8 +291,8 @@ function EmployeeContacts() {
                             <td>{employee.department}</td>
                             <td>{employee.position}</td>
                             <td>
-                                <a style={{padding:"1px", marginRight:"2px"}} onClick={() => handleEdit(employee)}>✏</a>
-                                <a style={{padding:"1px"}} onClick={() => deleteEmployee(employee._id)}>🗑</a>
+                                <a style={{ padding: "1px", marginRight: "2px" }} onClick={() => handleEdit(employee)}>✏</a>
+                                <a style={{ padding: "1px" }} onClick={() => deleteEmployee(employee._id)}>🗑</a>
                             </td>
                         </tr>
                     ))}

@@ -65,7 +65,7 @@ const DashboardCRM = () => {
         <h2>Dashboard</h2>
       </div>
       <div className="chartSection">
-        <MeetingNotifications />
+        <MeetingNotifications/>
         <TopDeals />
       </div>
       <div className="taskSection">

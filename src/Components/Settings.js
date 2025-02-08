@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import EmployeeContacts from "./EmployeeContacts";
+import MeetingSetting from "./MeetingsSetting";
 
 // API URLs for integrations, deals, and quotations
 const integrationsApiUrl = "https://crm-mu-sooty.vercel.app/api/integrations";
@@ -402,6 +403,11 @@ function Settings() {
                         <EmployeeContacts />
                     </>
                 )}
+                {activeSection === "meetings" && (
+                    <>
+                        <MeetingSetting />
+                    </>
+                )}
 
                 {/* Modal for Editing Services */}
                 {showModal && (
@@ -537,7 +543,21 @@ function Settings() {
                     >
                         Employee Contacts
                     </li>
-                    
+                    <li
+                        style={{
+                            color: "white",
+                            borderRadius: "10px",
+                            marginBottom: "8px",
+                            padding: "8px",
+                            cursor: "pointer",
+                            backgroundColor: "#5932EA",
+                            fontWeight: "bold",
+                        }}
+                        onClick={() => handleSidebarNavigation("meetings")}
+                    >
+                        Meetings
+                    </li>
+
                 </ul>
             </div>
         </div>

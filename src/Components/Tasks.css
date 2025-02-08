@@ -47,6 +47,13 @@ body {
     gap: 20px;
 }
 
+@media (max-Width: 768px) {
+    .tasks-board{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .column {
     flex: 1;
     background-color: white;

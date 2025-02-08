@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-const dealsApiUrl = "http://localhost:5001/api/dealmanagement";
+const dealsApiUrl = "https://crm-mu-sooty.vercel.app/api/dealmanagement";
 const projectsDetailsApiUrl = "https://crm-mu-sooty.vercel.app/api/projectsDetails"; // Correct URL for your backend
-const employeesApiUrl = "http://localhost:5001/api/employees"; // URL to fetch employees
+const employeesApiUrl = "https://crm-mu-sooty.vercel.app/api/employees"; // URL to fetch employees
 
 function Projects() {
   const [qualifiedDeals, setQualifiedDeals] = useState([]);
@@ -72,10 +72,10 @@ function Projects() {
   // Get project details by name (if available)
   const getProjectDetail = (projectName) => {
     const project = projectDetails[projectName] || {};
-    
+
     // Safeguard the team to always be an array (default to empty array if undefined)
     const team = Array.isArray(project.team) ? project.team : [];
-  
+
     return {
       dueDate: project.dueDate || "N/A",
       team,  // Return the validated team array
@@ -140,7 +140,7 @@ function Projects() {
       if (response.ok) {
         // Update the project details directly in the state without needing to refresh
         const updatedProject = { ...formData, id: selectedDeal._id };
-        
+
         // Update the project details in the `projectDetails` state
         setProjectDetails((prevDetails) => ({
           ...prevDetails,
@@ -168,29 +168,29 @@ function Projects() {
   };
 
   // Convert status text to percentage
-const getStatusPercentage = (status) => {
-  switch (status) {
-    case "To Do":
-      return 0;
-    case "Open":
-      return 20;
-    case "In Progress":
-      return 50;
-    case "Completed":
-      return 100;
-    default:
-      return 0;
-  }
-};
+  const getStatusPercentage = (status) => {
+    switch (status) {
+      case "To Do":
+        return 0;
+      case "Open":
+        return 20;
+      case "In Progress":
+        return 50;
+      case "Completed":
+        return 100;
+      default:
+        return 0;
+    }
+  };
 
-// Get color based on status percentage
-const getStatusColor = (percentage) => {
-  if (percentage === 0) return "transparent";
-  if (percentage === 20) return "red";
-  if (percentage === 50) return "yellow";
-  if (percentage === 100) return "green";
-  return "gray";
-};
+  // Get color based on status percentage
+  const getStatusColor = (percentage) => {
+    if (percentage === 0) return "transparent";
+    if (percentage === 20) return "red";
+    if (percentage === 50) return "yellow";
+    if (percentage === 100) return "green";
+    return "gray";
+  };
 
 
   return (
@@ -202,7 +202,7 @@ const getStatusColor = (percentage) => {
       <table className="qualified-deals-table">
         <thead>
           <tr>
-         
+
             <th>Project Name</th>
             <th>Due Date</th>
             <th>Team</th>
@@ -212,58 +212,58 @@ const getStatusColor = (percentage) => {
           </tr>
         </thead>
         <tbody>
-  {qualifiedDeals.map((deal) => {
-    const { dueDate, team, status } = getProjectDetail(deal.name);
-    return (
-      <tr key={deal._id}>
-        <td>{deal.name}</td>
-        <td>{dueDate}</td>
-        <td>{team.length > 0 ? team.join(", ") : "N/A"}</td> {/* Safely join the team members */}
-        <td>
-  <div style={{ 
-    display: "flex", 
-    alignItems: "center" 
-  }}>
-    <div style={{ 
-      width: "100px", 
-      height: "10px", 
-      backgroundColor: "#ddd", 
-      borderRadius: "5px", 
-      overflow: "hidden",
-      marginRight: "10px"  // Space between bar and text
-    }}>
-      <div style={{ 
-        width: `${getStatusPercentage(status)}%`, 
-        height: "100%", 
-        backgroundColor: getStatusColor(getStatusPercentage(status)), 
-        transition: "width 0.5s ease-in-out" 
-      }}></div>
-    </div>
-    <span>{getStatusPercentage(status)}%</span> {/* Display the percentage */}
-  </div>
-</td>
+          {qualifiedDeals.map((deal) => {
+            const { dueDate, team, status } = getProjectDetail(deal.name);
+            return (
+              <tr key={deal._id}>
+                <td>{deal.name}</td>
+                <td>{dueDate}</td>
+                <td>{team.length > 0 ? team.join(", ") : "N/A"}</td> {/* Safely join the team members */}
+                <td>
+                  <div style={{
+                    display: "flex",
+                    alignItems: "center"
+                  }}>
+                    <div style={{
+                      width: "100px",
+                      height: "10px",
+                      backgroundColor: "#ddd",
+                      borderRadius: "5px",
+                      overflow: "hidden",
+                      marginRight: "10px"  // Space between bar and text
+                    }}>
+                      <div style={{
+                        width: `${getStatusPercentage(status)}%`,
+                        height: "100%",
+                        backgroundColor: getStatusColor(getStatusPercentage(status)),
+                        transition: "width 0.5s ease-in-out"
+                      }}></div>
+                    </div>
+                    <span>{getStatusPercentage(status)}%</span> {/* Display the percentage */}
+                  </div>
+                </td>
 
 
-        <td>
-          <button
-            onClick={() => handleEdit(deal)}
-            style={{
-              marginRight: "10px",
-              backgroundColor: "#007bff",
-              color: "#fff",
-              border: "none",
-              padding: "5px 10px",
-              cursor: "pointer",
-            }}
-          >
-            Edit
-          </button>
-        </td>
-    <td>{"N/A"}</td>
-      </tr>
-    );
-  })}
-</tbody>
+                <td>
+                  <button
+                    onClick={() => handleEdit(deal)}
+                    style={{
+                      marginRight: "10px",
+                      backgroundColor: "#007bff",
+                      color: "#fff",
+                      border: "none",
+                      padding: "5px 10px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Edit
+                  </button>
+                </td>
+                <td>{"N/A"}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
 
       {isModalOpen && (

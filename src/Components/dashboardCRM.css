@@ -58,8 +58,12 @@
     text-align: center;
   }
 
+  .meetingdiv{
+    background-color: red;
+  }
+
   .dashboard{
-    margin-left: 0%;
+    margin-left: -17%;
   }
   .chartSection,
   .taskSection {

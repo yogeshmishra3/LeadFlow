@@ -487,6 +487,7 @@ button[type="submit"]:hover {
 
   .sidebar-toggle-button {
     display: block;
+    color: black;
   }
 
   .navbar h2 {

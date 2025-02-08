@@ -26,7 +26,7 @@ function ClientContacts() {
     const [editClientId, setEditClientId] = useState(null); // To store the clientId of the client to edit
     const navigate = useNavigate();
 
-    const apiUrl = "http://localhost:5001/api/clientDetail";
+    const apiUrl = "https://crm-mu-sooty.vercel.app/api/clientDetail";
 
     useEffect(() => {
         fetchClients();
@@ -70,24 +70,24 @@ function ClientContacts() {
 
     const addClient = async (e) => {
         e.preventDefault();
-    
+
         console.log("Form data before sending:", formData); // Check the data
-    
+
         // Make sure clientId is not empty or null
         if (!formData.clientId) {
             showPopupMessage("Client ID is required!");
             return;
         }
-    
+
         try {
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
-    
+
             const data = await response.json();
-    
+
             if (data.success) {
                 showPopupMessage("Client added successfully!");
                 fetchClients();
@@ -101,15 +101,15 @@ function ClientContacts() {
             showPopupMessage("An error occurred while adding the client.");
         }
     };
-    
-    
-    
+
+
+
 
     const editClient = async (clientId) => {
         try {
             const response = await fetch(`${apiUrl}/${clientId}`);
             const data = await response.json();
-    
+
             if (data.success) {
                 setFormData(data.client);
                 setShowModal(true);
@@ -123,35 +123,35 @@ function ClientContacts() {
             showPopupMessage("An error occurred while fetching client details.");
         }
     };
-    
+
 
     const deleteClient = async (clientId) => {
-    // Show confirmation dialog
-    const isConfirmed = window.confirm("Are you sure you want to delete this client?");
-    
-    // If the user clicked "OK", proceed with the delete action
-    if (isConfirmed) {
-        try {
-            const response = await fetch(`${apiUrl}/${clientId}`, {
-                method: "DELETE",
-            });
+        // Show confirmation dialog
+        const isConfirmed = window.confirm("Are you sure you want to delete this client?");
 
-            const data = await response.json();
+        // If the user clicked "OK", proceed with the delete action
+        if (isConfirmed) {
+            try {
+                const response = await fetch(`${apiUrl}/${clientId}`, {
+                    method: "DELETE",
+                });
 
-            if (data.success) {
-                showPopupMessage("Client deleted successfully!");
-                fetchClients(); // Refresh the client list
-            } else {
-                showPopupMessage("Failed to delete client!");
+                const data = await response.json();
+
+                if (data.success) {
+                    showPopupMessage("Client deleted successfully!");
+                    fetchClients(); // Refresh the client list
+                } else {
+                    showPopupMessage("Failed to delete client!");
+                }
+            } catch (error) {
+                console.error("Error deleting client:", error);
+                showPopupMessage("An error occurred while deleting the client.");
             }
-        } catch (error) {
-            console.error("Error deleting client:", error);
-            showPopupMessage("An error occurred while deleting the client.");
+        } else {
+            console.log("Deletion cancelled.");
         }
-    } else {
-        console.log("Deletion cancelled.");
-    }
-};
+    };
 
 
     const resetFormData = () => {
@@ -315,16 +315,16 @@ function ClientContacts() {
                                 />
                             </div>
                             <div className="subdiv">
-                            <input
-    type="text"
-    name="dob"
-    placeholder="(In Date) DD/MM/YYYY"
-    value={formData.dob}
-    onChange={handleInputChange}
-    required
-    pattern="\d{2}/\d{2}/\d{4}"
-    title="Please enter the date in DD/MM/YYYY format."
-/>
+                                <input
+                                    type="text"
+                                    name="dob"
+                                    placeholder="(In Date) DD/MM/YYYY"
+                                    value={formData.dob}
+                                    onChange={handleInputChange}
+                                    required
+                                    pattern="\d{2}/\d{2}/\d{4}"
+                                    title="Please enter the date in DD/MM/YYYY format."
+                                />
 
                                 <input
                                     type="text"

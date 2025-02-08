@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../App';
+import './Login.css';
 
 
 function Login({ onLogin }) {
@@ -20,9 +21,9 @@ function Login({ onLogin }) {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleLogin}>
+      <h2 style={{display:'flex', justifyContent:'center'}}>Login</h2>
         <input
           type="email"
           placeholder="Email"

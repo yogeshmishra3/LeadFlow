@@ -12,7 +12,7 @@ const Finance = () => {
   useEffect(() => {
     const fetchQualifiedDeals = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/dealmanagement');
+        const response = await fetch('https://crm-mu-sooty.vercel.app/api/dealmanagement');
         if (!response.ok) throw new Error("Failed to fetch deals.");
 
         const dealsData = await response.json();
@@ -51,7 +51,7 @@ const Finance = () => {
 
     const fetchFinanceDetails = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/financeDetails');
+        const response = await fetch('https://crm-mu-sooty.vercel.app/api/financeDetails');
         if (!response.ok) throw new Error("Failed to fetch finance details.");
 
         const financeData = await response.json();
@@ -149,7 +149,7 @@ const Finance = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5001/api/financeDetails', {
+      const response = await fetch('https://crm-mu-sooty.vercel.app/api/financeDetails', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedFinance),

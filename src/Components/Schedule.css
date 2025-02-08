@@ -222,6 +222,19 @@
     background-color: #888;
 }
 
+@media (max-Width:768px) {
+    .header-calendar{
+        margin-left: 135px;
+    }
+    .calendar-container{
+        margin-left: 290px;
+    }
+
+    .calendar-container h4{
+        margin-left: -180px;
+    }
+}
+
 
 .error-text {
     color: #d9534f;

@@ -45,29 +45,6 @@ const Calendar = () => {
         return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     };
 
-    const handleEditEvent = (index) => {
-        const event = dayEvents[index];
-        setStartTime(event.startTime);
-        setEndTime(event.endTime);
-        setNoteText(event.note);
-        setKeyword(event.keyword || "");
-        setIsEditing(true);
-        setEditIndex(index);
-    };
-
-    const handleDeleteEvent = async (index) => {
-        const event = dayEvents[index];
-        const formattedDate = formatDate(currentYear, currentMonth, selectedDay);
-        try {
-            await axios.delete(`${API_BASE_URL}/delete`, {
-                data: { date: formattedDate, startTime: event.startTime }
-            });
-            setDayEvents(dayEvents.filter((_, i) => i !== index));
-            fetchMeetings();
-        } catch (error) {
-            console.error("Error deleting meeting:", error);
-        }
-    };
 
     const handleSaveNote = async () => {
         if (!startTime || !endTime || !noteText || !keyword) {
@@ -115,7 +92,7 @@ const Calendar = () => {
                 updatedEvents[editIndex] = { startTime, endTime, note: noteText, keyword };
                 setDayEvents(updatedEvents);
                 setIsEditing(false);
-                await axios.put(`${API_BASE_URL}/update`, { date: formattedDate, startTime, endTime, note: noteText, keyword });
+                await axios.put(`${API_BASE_URL}/update, { date: formattedDate, startTime, endTime, note: noteText, keyword }`);
             } else {
                 const newEvent = { startTime, endTime, note: noteText, keyword };
                 setDayEvents([...dayEvents, newEvent]);
@@ -234,7 +211,7 @@ const Calendar = () => {
                                                     {keywords.map((event, idx) => (
                                                         <span key={idx} className="keyword">
                                                             {event.keyword && Array.isArray(event.keyword) ? event.keyword.join(', ') : event.keyword}
-                                                            <br/>
+                                                            <br />
                                                         </span>
                                                     ))}
                                                 </div>
@@ -255,8 +232,7 @@ const Calendar = () => {
                                 dayEvents.map((event, index) => (
                                     <div key={index} className="event">
                                         <p>{`${event.startTime} - ${event.endTime}: ${event.note}`}</p>
-                                        <button className="button" onClick={() => handleEditEvent(index)}>Edit</button>
-                                        <button className="button" onClick={() => handleDeleteEvent(index)}>Delete</button>
+
                                     </div>
                                 ))
                             ) : (
