@@ -6,9 +6,9 @@ import {
   Document,
   StyleSheet,
   PDFDownloadLink,
-  Image, // Imported Image component
+  Image,
 } from "@react-pdf/renderer";
-import { useLocation } from "react-router-dom"; // To access the passed state from the Deals component
+import { useLocation } from "react-router-dom";
 import "./Quotes.css";
 
 // PDF Styles
@@ -60,6 +60,12 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: "#555",
   },
+  bankDetails: {
+    marginTop: 20,
+    borderTopWidth: 1,
+    borderColor: "#0047AB",
+    paddingTop: 10,
+  },
 });
 
 // PDF Document Component
@@ -68,7 +74,6 @@ const QuotationDocument = ({ data }) => (
     <Page size="A4" style={styles.page}>
       {/* Header */}
       <View style={styles.header}>
-        {/* Added Image */}
         <Image
           src="../TARS.png" // Replace with your logo's path
           style={{ width: 100, height: 40 }}
@@ -94,6 +99,9 @@ const QuotationDocument = ({ data }) => (
         <Text>Billed To:</Text>
         <Text>{data.clientName}</Text>
         <Text>{data.department}</Text>
+        <Text>{data.clientAddress}</Text>
+        <Text>{data.clientEmail}</Text>
+        <Text>{data.clientPhone}</Text>
       </View>
 
       {/* Items Table */}
@@ -108,6 +116,16 @@ const QuotationDocument = ({ data }) => (
             <Text style={{ flex: 1 }}>{item.amount}</Text>
           </View>
         ))}
+      </View>
+
+      {/* Bank Details */}
+      <View style={styles.bankDetails}>
+        <Text style={{ fontWeight: "bold", marginBottom: 5 }}>Bank Details:</Text>
+        <Text>Bank Name: {data.bankName}</Text>
+        <Text>Account Name: {data.accountName}</Text>
+        <Text>Account Number: {data.accountNumber}</Text>
+        <Text>IFSC Code: {data.ifscCode}</Text>
+        <Text>Branch: {data.branch}</Text>
       </View>
 
       {/* Footer */}
@@ -130,6 +148,14 @@ const QuotationGenerator = () => {
     clientName: clientName || "", // Pre-fill clientName from the passed data
     dealName: dealName || "",     // Pre-fill dealName from the passed data
     department: "",
+    clientAddress: "",
+    clientEmail: "",
+    clientPhone: "",
+    bankName: "",
+    accountName: "",
+    accountNumber: "",
+    ifscCode: "",
+    branch: "",
     items: [],
   });
 
@@ -158,9 +184,9 @@ const QuotationGenerator = () => {
   // Save quotation to the backend
   const handleSaveQuotation = async () => {
     // Validation for required fields
-    const { CompanyRequirement, quotationNo, date, clientName, department, items } = formData;
+    const { CompanyRequirement, quotationNo, date, clientName, department, items, clientAddress, clientEmail, clientPhone, bankName, accountName, accountNumber, ifscCode, branch } = formData;
 
-    if (!quotationNo || !CompanyRequirement || !date || !clientName || !department) {
+    if (!quotationNo || !CompanyRequirement || !date || !clientName || !department || !clientAddress || !clientEmail || !clientPhone || !bankName || !accountName || !accountNumber || !ifscCode || !branch) {
       alert("Please fill out all required fields.");
       return;
     }
@@ -177,8 +203,7 @@ const QuotationGenerator = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-    });
-    
+      });
 
       if (!response.ok) throw new Error("Failed to save quotation");
 
@@ -194,6 +219,14 @@ const QuotationGenerator = () => {
         clientName: clientName || "", // Keep clientName pre-filled
         dealName: dealName || "",     // Keep dealName pre-filled
         department: "",
+        clientAddress: "",
+        clientEmail: "",
+        clientPhone: "",
+        bankName: "",
+        accountName: "",
+        accountNumber: "",
+        ifscCode: "",
+        branch: "",
         items: [],
       });
     } catch (error) {
@@ -271,6 +304,74 @@ const QuotationGenerator = () => {
           required
         />
 
+        {/* Additional Client Info */}
+        <label>Client Address:</label>
+        <input
+          type="text"
+          name="clientAddress"
+          value={formData.clientAddress}
+          onChange={handleInputChange}
+          required
+        />
+        <label>Client Email:</label>
+        <input
+          type="email"
+          name="clientEmail"
+          value={formData.clientEmail}
+          onChange={handleInputChange}
+          required
+        />
+        <label>Client Phone:</label>
+        <input
+          type="text"
+          name="clientPhone"
+          value={formData.clientPhone}
+          onChange={handleInputChange}
+          required
+        />
+
+        {/* Bank Details */}
+        <label>Bank Name:</label>
+        <input
+          type="text"
+          name="bankName"
+          value={formData.bankName}
+          onChange={handleInputChange}
+          required
+        />
+        <label>Account Name:</label>
+        <input
+          type="text"
+          name="accountName"
+          value={formData.accountName}
+          onChange={handleInputChange}
+          required
+        />
+        <label>Account Number:</label>
+        <input
+          type="text"
+          name="accountNumber"
+          value={formData.accountNumber}
+          onChange={handleInputChange}
+          required
+        />
+        <label>IFSC Code:</label>
+        <input
+          type="text"
+          name="ifscCode"
+          value={formData.ifscCode}
+          onChange={handleInputChange}
+          required
+        />
+        <label>Branch:</label>
+        <input
+          type="text"
+          name="branch"
+          value={formData.branch}
+          onChange={handleInputChange}
+          required
+        />
+
         {/* Items Section */}
         <div className="add-item-section">
           <label>Description:</label>
@@ -311,42 +412,39 @@ const QuotationGenerator = () => {
       </form>
 
       {/* Saved Quotations */}
-<div className="saved-quotations">
-<h3>Saved Quotations</h3>
-<table style={{ width: "100%" }}>
-  <thead>
-    <tr>
-      <th>Client Name</th>
-      <th>Quotation No</th>
-      <th>Date</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  {savedQuotations.map((quotation, index) => (
-  <tr key={index}>
-    <td>{quotation.clientName}</td>
-    <td>{quotation.quotationNo}</td>
-    <td>{quotation.date}</td>
-    <td>{quotation.dealName}</td> {/* Display the deal name here */}
-    <td>
-      <PDFDownloadLink
-        document={<QuotationDocument data={quotation} />}
-        fileName={`quotation_${quotation.quotationNo}.pdf`}
-      >
-        {({ loading }) => loading ? "Loading PDF..." : "Download PDF"}
-      </PDFDownloadLink>
-    </td>
-  </tr>
-))}
-
-  </tbody>
-</table>
-</div>
+      <div className="saved-quotations">
+        <h3>Saved Quotations</h3>
+        <table style={{ width: "100%" }}>
+          <thead>
+            <tr>
+              <th>Client Name</th>
+              <th>Quotation No</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {savedQuotations.map((quotation, index) => (
+              <tr key={index}>
+                <td>{quotation.clientName}</td>
+                <td>{quotation.quotationNo}</td>
+                <td>{quotation.date}</td>
+                <td>{quotation.dealName}</td>
+                <td>
+                  <PDFDownloadLink
+                    document={<QuotationDocument data={quotation} />}
+                    fileName={`quotation_${quotation.quotationNo}.pdf`}
+                  >
+                    {({ loading }) => loading ? "Loading PDF..." : "Download PDF"}
+                  </PDFDownloadLink>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
-  
 };
 
 export default QuotationGenerator;
-
